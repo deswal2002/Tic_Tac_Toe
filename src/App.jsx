@@ -5,6 +5,7 @@ import {BrowserRouter,
   Routes,
   Route,} from "react-router-dom";
 function App() {
+  document.title='TIC-TAC-TOE'
   return (
     <>
     <Tip_time />

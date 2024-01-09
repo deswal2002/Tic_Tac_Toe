@@ -168,7 +168,6 @@ function Play_game() {
             newArray[enemy] = 1;
             setCells(newArray);
             choice_winner(your_choice)
-            console.log('jjj')
         }
     }
     return (
