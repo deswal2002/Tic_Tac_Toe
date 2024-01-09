@@ -50,8 +50,8 @@ function Tic_tac_toe() {
     )}
     <div className='box'>
       <div id='box1' >
-        <img src='./public/blue_cross.svg ' id='blue_cross' />
-        <img src='./public/yellow_circle.svg' id='yellow_circle' />
+        <img src='../../public/blue_cross.svg ' id='blue_cross' />
+        <img src='../../public/yellow_circle.svg' id='yellow_circle' />
         <div id='pick_player'>
           <div id='write'>PICK PLAYER</div>
           <div id='choose'>

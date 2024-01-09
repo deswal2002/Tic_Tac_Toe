@@ -48,7 +48,6 @@ function Play_game() {
     let newArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     let n = 0;
     let [turn, setturn] = useState(['', ''])
-    let [cpu_win_loss,setcpu_win_loss] = useState(false)
     const [cross_circle, setcross_circle] = useState(['', '', '', '', '', '', '', '', ''])
     const [cells, setCells] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
     const winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -65,13 +64,6 @@ function Play_game() {
             setturn(which_turn)
         }
     }, [])
-    //useEffect(()=>{
-    //    if(cpu_win_loss){
-    //        cpu_turn()
-    //        setcpu_win_loss(false)
-    //        console.log(your_choice)
-    //    }
-    //},[cpu_win_loss,your_choice])
     let choice_winner = (your_choice) => {
         for (let i = 0; i < 8; i++) {
             const [a, b, c] = winner[i]
@@ -127,7 +119,6 @@ function Play_game() {
             your_choice[num]=turn[0]
             newArray = [...cells];
             newArray[num] = 1;
-            setcpu_win_loss(true)
             choice_winner(your_choice)
             if(win_n!==1){
                 win_n=0
@@ -174,57 +165,58 @@ function Play_game() {
             newArray[enemy] = 1;
             setCells(newArray);
             choice_winner(your_choice)
+            console.log('jjj')
         }
     }
     return (
         <>
             <div className='box'>
                 <div id='box2' >
-                    <img src='./public/blue_cross.svg ' id='blue_cross_game' />
-                    <img src='./public/yellow_circle.svg' id='yellow_circle_game' />
+                    <img src='../../public/blue_cross.svg ' id='blue_cross_game' />
+                    <img src='../../public/yellow_circle.svg' id='yellow_circle_game' />
                     <div id='turn'>
                         <div id='play_chose'>{data === 1 ? 'X' : 'O'}</div>
                         <div id='turn_chose'>TURN</div>
                     </div>
                     <div id='rectangle'>
-                        <input type='image' src='./public/pajamas_retry.svg' id="retry" onClick={quit} />
+                        <input type='image' src='../../public/pajamas_retry.svg' id="retry" onClick={quit} />
                     </div>
                     <div id='box_small'>
                         <div id='di'>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[0]) !== 1 ? 'none' : 'flex' }} src={cross_circle[0] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[0]) !== 1 ? 'none' : 'flex' }} src={cross_circle[0] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(0)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[1]) !== 1 ? 'none' : 'flex' }} src={cross_circle[1] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[1]) !== 1 ? 'none' : 'flex' }} src={cross_circle[1] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(1)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[2]) !== 1 ? 'none' : 'flex' }} src={cross_circle[2] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[2]) !== 1 ? 'none' : 'flex' }} src={cross_circle[2] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(2)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[3]) !== 1 ? 'none' : 'flex' }} src={cross_circle[3] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[3]) !== 1 ? 'none' : 'flex' }} src={cross_circle[3] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(3)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[4]) !== 1 ? 'none' : 'flex' }} src={cross_circle[4] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[4]) !== 1 ? 'none' : 'flex' }} src={cross_circle[4] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <    button className='black_box' onClick={() => play(4)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[5]) !== 1 ? 'none' : 'flex' }} src={cross_circle[5] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[5]) !== 1 ? 'none' : 'flex' }} src={cross_circle[5] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(5)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[6]) !== 1 ? 'none' : 'flex' }} src={cross_circle[6] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[6]) !== 1 ? 'none' : 'flex' }} src={cross_circle[6] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(6)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[7]) !== 1 ? 'none' : 'flex' }} src={cross_circle[7] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[7]) !== 1 ? 'none' : 'flex' }} src={cross_circle[7] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(7)}></button>
                             </div>
                             <div className='dv'>
-                                <img id='play' style={{ display: (cells[8]) !== 1 ? 'none' : 'flex' }} src={cross_circle[8] === 'x' ? './public/blue_cross.svg' : './public/yellow_circle.svg'} />
+                                <img id='play' style={{ display: (cells[8]) !== 1 ? 'none' : 'flex' }} src={cross_circle[8] === 'x' ? '../../public/blue_cross.svg' : '../../public/yellow_circle.svg'} />
                                 <button className='black_box' onClick={() => play(8)}></button>
                             </div>
                         </div>
