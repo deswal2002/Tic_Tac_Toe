@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import './Tic_tac_toe.css'
+import tip_circle from "./assets/tip_circle.svg"
+import gruop3 from "./assets/Group 3 (2).svg"
 function Tip_time() {
   let [id,setid] =useState()
   let [advice,setadvice] =useState()
@@ -24,8 +26,8 @@ function Tip_time() {
       <div id='id1'>Quote #{id}</div>
       <div id='adv_box'>
         <div id='adv1'>"{advice}"</div>
-        <img src="./public/tip_circle.svg" id='last' />
-        <img src="./public/Group 3 (2).svg" id='last1' />
+        <img src={tip_circle} id='last' />
+        <img src={gruop3} id='last1' />
       </div>
     </div>
   )
