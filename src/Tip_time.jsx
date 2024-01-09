@@ -22,7 +22,7 @@ function Tip_time() {
   }, []); 
   
   return (
-    <div id='tip'>
+    <div className='tip'>
       <div id='id1'>Quote #{id}</div>
       <div id='adv_box'>
         <div id='adv1'>"{advice}"</div>
