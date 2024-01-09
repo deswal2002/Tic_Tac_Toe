@@ -460,6 +460,10 @@ body {
     margin-left: 38%;
 }
 @media only screen and (max-width:420px){
+    body{
+        margin: 0;
+        padding: 0;
+    }
     .box {
         width: 420px;
         height: 100vh;
